@@ -40,7 +40,7 @@ complex();
 console.log(this);
 
 function clicked() {
-  // regular_function ? buttom_element : lexical_scope
+  // button element in case of regular function and lexical scope in case of arrow function
   console.log(this);
 }
 
