@@ -1,4 +1,4 @@
-impossible(); // Gives error since impossible you are in TDZ
+impossible(); // Gives error since it is impossible (you are in TDZ)
 
 mayBePossible(); // Gives error since possible is undefined(var - undefined)
 
