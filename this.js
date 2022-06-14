@@ -14,7 +14,7 @@ const alien = {
     console.log(this);
   },
   getName: function () {
-    console.log(this);
+    console.log(this.name);
     const sayHello = () => {
       // this from outer "normal" function which is getName() here
       console.log(this); // prints object calling the getName() function
