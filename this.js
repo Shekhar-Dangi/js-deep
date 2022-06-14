@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const button = document.getElementById("btn");
 
@@ -8,8 +8,23 @@ const alien = {
   getAge: function () {
     // this points to alien
     return this?.age;
-  }
-}
+  },
+  sayHello: () => {
+    // Gets this(Window object here(!strict_mode)) from outer "normal" function
+    console.log(this);
+  },
+  getName: function () {
+    console.log(this);
+    const sayHello = () => {
+      // this from outer "normal" function which is getName() here
+      console.log(this); // prints object calling the getName() function
+    };
+    sayHello();
+  },
+};
+
+alien.sayHello(); // consoles Window object(!strict_mode)
+alien.getName();
 
 console.log(alien.getAge());
 // logs 18
@@ -22,21 +37,21 @@ function simple() {
   // strict_mode ? undefined : Window
   console.log(this);
 }
-simple();//  simple function call 
+simple(); //  simple function call
 
 const simple2 = function () {
   // strict_mode ? undefined : Window
   console.log(this);
-}
+};
 simple2(); //  simple function call
 
 const complex = () => {
   // gets lexical scope(Window object in this case)
-  console.log('complex : ', this);
-}
+  console.log("complex : ", this);
+};
 complex();
 
-// logs Window object so complex gets Window object 
+// logs Window object so complex gets Window object
 console.log(this);
 
 function clicked() {
@@ -44,4 +59,4 @@ function clicked() {
   console.log(this);
 }
 
-button.addEventListener('click', clicked);
+button.addEventListener("click", clicked);
